@@ -33,6 +33,7 @@ DESC CLIENTE;
 
 INSERT INTO CLIENTE VALUES('JOAO', 'M', 'JOAO@GMAIL.COM', 853651257, '229231148', 'MAIA LACERDA - ESTACIO - RIO DE JANEIRO - RJ');
 INSERT INTO CLIENTE VALUES('JORGE', 'M', NULL, 885755096, '58748895', 'OSCAR CURY - BOM RETIRO - PATOS DE MINAS - MG');
+INSERT INTO CLIENTE VALUES('CELIA', 'F', 'CELIA@GMAIL.COM', 541524786, '258967845', 'RIACHUELO - CENTRO - RIO DE JANEIRO - RJ');
 
 /* FORMA 02 - COLOCANDO AS COLUNAS */
 
@@ -86,3 +87,57 @@ WHERE ENDERECO LIKE 'OSCAR CURY%';
 
 SELECT NOME, SEXO, ENDERECO FROM CLIENTE
 WHERE ENDERECO LIKE '%CENTRO%';
+
+/* OPERADORES LÓGICOS
+OR -> PARA QUE A SAÍDA DA QUERY SEJA VERDADEIRA, BASTA QUE APENAS UMA CONDIÇÃO SEJA VERDADEIRA.
+AND -> PARA QUE A SAÍDA SEJA VERDADEIRA TODAS AS CONDIÇÕES PRECISAM SER VERDADEIRAS.
+*/
+
+/* OR - OU */
+
+SHOW DATABASES;
+
+USE PROJETO;
+
+SELECT NOME, SEXO, ENDERECO FROM CLIENTE
+WHERE SEXO = 'M' OR ENDERECO LIKE '%RJ';
+'''
++--------+------+-----------------------------------------------+
+| NOME   | SEXO | ENDERECO                                      |
++--------+------+-----------------------------------------------+
+| JORGE  | M    | OSCAR CURY - BOM RETIRO - PATOS DE MINAS - MG |
+| JOAO   | M    | MAIA LACERDA - ESTACIO - RIO DE JANEIRO - RJ  |
+| LILIAN | F    | SENADOR SOARES - TIJUCA - RIO DE JANEIRO - RJ |
+| CELIA  | F    | RIACHUELO - CENTRO - RIO DE JANEIRO - RJ      |
++--------+------+-----------------------------------------------+
+4 rows in set (0.00 sec)'''
+
+SELECT NOME, SEXO, ENDERECO FROM CLIENTE
+WHERE SEXO = 'M' AND ENDERECO LIKE '%RJ';
+'''
++------+------+----------------------------------------------+
+| NOME | SEXO | ENDERECO                                     |
++------+------+----------------------------------------------+
+| JOAO | M    | MAIA LACERDA - ESTACIO - RIO DE JANEIRO - RJ |
++------+------+----------------------------------------------+
+1 row in set (0.00 sec)'''
+
+SELECT NOME, SEXO, ENDERECO FROM CLIENTE
+WHERE SEXO = 'F' OR ENDERECO LIKE '%ESTACIO';
+'''
++--------+------+-----------------------------------------------+
+| NOME   | SEXO | ENDERECO                                      |
++--------+------+-----------------------------------------------+
+| LILIAN | F    | SENADOR SOARES - TIJUCA - RIO DE JANEIRO - RJ |
+| ANA    | F    | PRES ANTONIO CARLOS - CENTRO - SAO PAULO - SP |
+| CARLA  | F    | SAMUEL SILVA - CENTRO - BELO HORIZONTE - MG   |
+| CELIA  | F    | RIACHUELO - CENTRO - RIO DE JANEIRO - RJ      |
++--------+------+-----------------------------------------------+
+4 rows in set (0.00 sec)'''
+
+/* AND - E */
+
+SELECT NOME, SEXO, ENDERECO FROM CLIENTE
+WHERE SEXO = 'F' AND ENDERECO LIKE '%ESTACIO';
+
+'''Empty set (0.00 sec)'''
