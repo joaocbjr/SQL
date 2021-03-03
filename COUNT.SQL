@@ -78,4 +78,4 @@ AND SEXO = 'F';
 | LILIAN | F    | SENADOR SOARES - TIJUCA - RIO DE JANEIRO - RJ |
 | CELIA  | F    | RIACHUELO - CENTRO - RIO DE JANEIRO - RJ      |
 +--------+------+-----------------------------------------------+
-3 rows in set (0.00 sec)'''
+3 rows in set (0.00 sec)''' 
