@@ -1,8 +1,13 @@
-create table departamentos (
+CREATE DATABASE EXERCICIO;
+
+USE EXERCICIO;
+
+create table departamentos 
+    (
     departamento varchar(100),
     divisao varchar(100),
     primary key (departamento)
-  );
+    );
 
 insert into departamentos values ('Automotivo','Auto & Hardware');
 insert into departamentos values ('Bebês','Casa e Afins');
@@ -50,11 +55,11 @@ create table funcionarios
       email varchar(200),
       sexo varchar(10),
       departamento varchar(100),
-      admissao date,
+      admissao VARCHAR(10),
       salario integer,
       cargo varchar(100),
       idRegiao int,
-      primary key (idFuncionario)
+      
   );
 
 insert into funcionarios values (1,'Kelley','rkelley0@soundcloud.com','Feminino','Computadores','10/2/2009',67470,'Structural Engineer',2);
