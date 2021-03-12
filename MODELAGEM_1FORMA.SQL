@@ -32,6 +32,59 @@ CREATE TABLE CLIENTE(
     EMAIL VARCHAR(30) UNIQUE,
     CPF VARCHAR (15) UNIQUE
 );
+'''
++-----------+---------------+------+-----+---------+----------------+
+| Field     | Type          | Null | Key | Default | Extra          |
++-----------+---------------+------+-----+---------+----------------+
+| IDCLIENTE | int(11)       | NO   | PRI | NULL    | auto_increment |
+| NOME      | varchar(30)   | NO   |     | NULL    |                |
+| SEXO      | enum('M','F') | NO   |     | NULL    |                |
+| EMAIL     | varchar(30)   | YES  | UNI | NULL    |                |
+| CPF       | varchar(15)   | YES  | UNI | NULL    |                |
++-----------+---------------+------+-----+---------+----------------+
+5 rows in set (0.01 sec)'''
+
+CREATE TABLE ENDERECO(
+    IDENDERECO INT PRIMARY KEY AUTO_INCREMENT,
+    RUA VARCHAR(30) NOT NULL,
+    BAIRRO VARCHAR(30) NOT NULL,
+    CIDADE VARCHAR(30) NOT NULL,
+    ESTADO CHAR(2) NOT NULL
+);
+'''
++------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| IDENDERECO | int(11)     | NO   | PRI | NULL    | auto_increment |
+| RUA        | varchar(30) | NO   |     | NULL    |                |
+| BAIRRO     | varchar(30) | NO   |     | NULL    |                |
+| CIDADE     | varchar(30) | NO   |     | NULL    |                |
+| ESTADO     | char(2)     | NO   |     | NULL    |                |
++------------+-------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)'''
+
+CREATE TABLE TELEFONE(
+    IDTELEFONE INT PRIMARY KEY AUTO_INCREMENT,
+    TIPO ENUM('RES','COM','CEL') NOT NULL,
+    NUMERO VARCHAR(10) NOT NULL
+);
+'''
++------------+-------------------------+------+-----+---------+----------------+
+| Field      | Type                    | Null | Key | Default | Extra          |
++------------+-------------------------+------+-----+---------+----------------+
+| IDTELEFONE | int(11)                 | NO   | PRI | NULL    | auto_increment |
+| TIPO       | enum('RES','COM','CEL') | NO   |     | NULL    |                |
+| NUMERO     | varchar(10)             | NO   |     | NULL    |                |
++------------+-------------------------+------+-----+---------+----------------+
+3 rows in set (0.00 sec)'''
+
+/*  OBS.:
+    ENDEREÇO - OBRIGATORIO
+    CADASTRO DE SOMENTE UM -> (1,1)
+
+    TELEFONE - NÃO OBRIGATORIO
+    CADASTRO DE MAIS DE UM (OPCIONAL) -> (0,n)
+*/
 
 
 
