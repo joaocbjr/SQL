@@ -102,16 +102,78 @@ SELECT C.IDCLIENTE, C.NOME, C.SEXO, C.EMAIL, C.CPF,
     E.RUA, E.BAIRRO, E.CIDADE, E.ESTADO,
     T.TIPO, T.NUMERO
 FROM CLIENTE C
-WHERE SEXO = 'M'
 INNER JOIN ENDERECO E
 ON C.IDCLIENTE = E.ID_CLIENTE
 INNER JOIN TELEFONE T
 ON C.IDCLIENTE = T.ID_CLIENTE
-ORDER BY IDCLIENTE;
+WHERE SEXO = 'M';
+
+'''
++-----------+---------+------+-------------------+---------------+--------------------+------------+----------------+--------+------+-----------+
+| IDCLIENTE | NOME    | SEXO | EMAIL             | CPF           | RUA                | BAIRRO     | CIDADE         | ESTADO | TIPO | NUMERO    |
++-----------+---------+------+-------------------+---------------+--------------------+------------+----------------+--------+------+-----------+
+|         1 | JOAO    | M    | JOAO@IG.COM       | 7689562248785 | RUA CAPITAO HERMES | CENTRO     | RIO DE JANEIRO | RJ     | CEL  | 784512223 |
+|         1 | JOAO    | M    | JOAO@IG.COM       | 7689562248785 | RUA CAPITAO HERMES | CENTRO     | RIO DE JANEIRO | RJ     | RES  | 784584555 |
+|         1 | JOAO    | M    | JOAO@IG.COM       | 7689562248785 | RUA CAPITAO HERMES | CENTRO     | RIO DE JANEIRO | RJ     | COM  | 784151544 |
+|         2 | CARLOS  | M    | CARLOS@IG.COM     | 7855456224845 | RUA ALFANDEGA      | ESTACIO    | RIO DE JANEIRO | RJ     | COM  | 784112545 |
+|         2 | CARLOS  | M    | CARLOS@IG.COM     | 7855456224845 | RUA ALFANDEGA      | ESTACIO    | RIO DE JANEIRO | RJ     | CEL  | 988585653 |
+|         5 | JORGE   | M    | JORGE@IG.COM      | 1254224845    | RUA URUGUAIANA     | CENTRO     | VITORIA        | ES     | CEL  | 784589653 |
+|         5 | JORGE   | M    | JORGE@IG.COM      | 1254224845    | RUA URUGUAIANA     | CENTRO     | VITORIA        | ES     | RES  | 658844545 |
+|         5 | JORGE   | M    | JORGE@IG.COM      | 1254224845    | RUA URUGUAIANA     | CENTRO     | VITORIA        | ES     | RES  | 788851653 |
+|         9 | ANDRE   | M    | ANDRE@GLOBO.COM   | 7687567       | RUA GUEDES         | CASCADURA  | B. HORIZONTE   | MG     | RES  | 68976565  |
+|         9 | ANDRE   | M    | ANDRE@GLOBO.COM   | 7687567       | RUA GUEDES         | CASCADURA  | B. HORIZONTE   | MG     | CEL  | 99656675  |
+|        11 | KARLA   | M    | KARLA@GMAIL.COM   | 545676778     | RUA VISCONDESSA    | CENTRO     | RIO DE JANEIRO | RJ     | CEL  | 33567765  |
+|        11 | KARLA   | M    | KARLA@GMAIL.COM   | 545676778     | RUA VISCONDESSA    | CENTRO     | RIO DE JANEIRO | RJ     | CEL  | 88668786  |
+|        11 | KARLA   | M    | KARLA@GMAIL.COM   | 545676778     | RUA VISCONDESSA    | CENTRO     | RIO DE JANEIRO | RJ     | COM  | 55689654  |
+|        12 | DANIELE | M    | DANIELE@GMAIL.COM | 43536789      | RUA NELSON MANDELA | COPACABANA | RIO DE JANEIRO | RJ     | COM  | 88687979  |
+|        13 | LORENA  | M    | NULL              | 774557887     | RUA ARAUJO LIMA    | CENTRO     | VITORIA        | ES     | COM  | 88965676  |
+|        16 | ANTONIO | M    | ANTONIO@UOL.COM   | 3423565       | AV CARLOS BARROSO  | JARDINS    | SAO PAULO      | SP     | COM  | 88679978  |
+|        17 | ELAINE  | M    | ELAINE@GLOBO.COM  | 32567763      | ALAMEDA SAMPAIO    | BOM RETIRO | CURITIBA       | PR     | CEL  | 99655768  |
+|        18 | CARMEM  | M    | CARMEM@IG.COM     | 787832213     | RUA DA LAPA        | LAPA       | SAO PAULO      | SP     | RES  | 89955665  |
++-----------+---------+------+-------------------+---------------+--------------------+------------+----------------+--------+------+-----------+
+18 rows in set (0.02 sec)'''
 
 /* RELATORIO DE MULHERES */
 
+SELECT C.IDCLIENTE, C.NOME, C.SEXO, C.EMAIL, C.CPF,
+    E.RUA, E.BAIRRO, E.CIDADE, E.ESTADO,
+    T.TIPO, T.NUMERO
+FROM CLIENTE C
+INNER JOIN ENDERECO E
+ON C.IDCLIENTE = E.ID_CLIENTE
+INNER JOIN TELEFONE T
+ON C.IDCLIENTE = T.ID_CLIENTE
+WHERE SEXO = 'F';
+'''
++-----------+---------+------+-------------------+--------------+--------------------+---------+----------------+--------+------+-----------+
+| IDCLIENTE | NOME    | SEXO | EMAIL             | CPF          | RUA                | BAIRRO  | CIDADE         | ESTADO | TIPO | NUMERO    |
++-----------+---------+------+-------------------+--------------+--------------------+---------+----------------+--------+------+-----------+
+|         3 | ANA     | F    | ANA@IG.COM        | 335689662845 | RUA PRES VARGAS    | JARDINS | SAO PAULO      | SP     | CEL  | 783330003 |
+|         3 | ANA     | F    | ANA@IG.COM        | 335689662845 | RUA PRES VARGAS    | JARDINS | SAO PAULO      | SP     | CEL  | 784748812 |
+|        15 | ANTONIO | F    | ANTONIO@IG.COM    | 12436767     | AV CAPITAO ANTUNES | CENTRO  | CURITIBA       | PR     | CEL  | 89966809  |
+|        19 | ADRIANA | F    | ADRIANA@GMAIL.COM | 88556942     | RUA GERONIMO       | CENTRO  | RIO DE JANEIRO | RJ     | RES  | 77455786  |
+|        19 | ADRIANA | F    | ADRIANA@GMAIL.COM | 88556942     | RUA GERONIMO       | CENTRO  | RIO DE JANEIRO | RJ     | RES  | 89766554  |
+|        20 | JOICE   | F    | JOICE@GMAIL.COM   | 55412256     | RUA GOMES FREIRE   | CENTRO  | RIO DE JANEIRO | RJ     | RES  | 77755785  |
+|        20 | JOICE   | F    | JOICE@GMAIL.COM   | 55412256     | RUA GOMES FREIRE   | CENTRO  | RIO DE JANEIRO | RJ     | COM  | 44522578  |
++-----------+---------+------+-------------------+--------------+--------------------+---------+----------------+--------+------+-----------+
+7 rows in set (0.00 sec)'''
+
 /* QUANTIDADE DE HOMENS E MULHERES */
 
-/* IDS E EMAILS DAS MULHERES NO CENTRO DO RIO DE JANEIRO E NÃO TENHA CELULAR */
+SELECT C.SEXO, COUNT(*)
+FROM CLIENTE C
+INNER JOIN ENDERECO E
+ON C.IDCLIENTE = E.ID_CLIENTE
+INNER JOIN TELEFONE T
+ON C.IDCLIENTE = T.ID_CLIENTE
+GROUP BY SEXO;
+'''
++------+----------+
+| SEXO | COUNT(*) |
++------+----------+
+| M    |       18 |
+| F    |        7 |
++------+----------+
+2 rows in set (0.00 sec)'''
 
+/* IDS E EMAILS DAS MULHERES NO CENTRO DO RIO DE JANEIRO E NÃO TENHA CELULAR */
