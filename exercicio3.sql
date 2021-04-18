@@ -52,8 +52,8 @@ INSERT INTO TELEFONE VALUES(NULL,'COM','44522578',20);
 
 ''' EXERCICIO '''
 
-/* Verificando a base de clientes encontaramos a seguinte situação:
-
+/* Verificando a base de clientes encontaramos a seguinte situação: */
+'''
 +-----------+---------+------+-------------------+---------------+
 | IDCLIENTE | NOME    | SEXO | EMAIL             | CPF           |
 +-----------+---------+------+-------------------+---------------+
@@ -78,12 +78,13 @@ INSERT INTO TELEFONE VALUES(NULL,'COM','44522578',20);
 |        19 | ADRIANA | F    | ADRIANA@GMAIL.COM | 88556942      |
 |        20 | JOICE   | F    | JOICE@GMAIL.COM   | 55412256      |
 +-----------+---------+------+-------------------+---------------+
-20 rows in set (0.03 sec)
+20 rows in set (0.03 sec)'''
 
-Os clientes de ID: 11, 12, 13, 15, 17 e 18 estão com o sexo trocados.
+-- Os clientes de ID: 11, 12, 13, 15, 17 e 18 estão com o sexo trocados.
 
 SELECT * FROM CLIENTE
 WHERE IDCLIENTE IN (11,12,13,15,17,18);
+'''
 +-----------+---------+------+-------------------+-----------+
 | IDCLIENTE | NOME    | SEXO | EMAIL             | CPF       |
 +-----------+---------+------+-------------------+-----------+
@@ -94,10 +95,10 @@ WHERE IDCLIENTE IN (11,12,13,15,17,18);
 |        17 | ELAINE  | M    | ELAINE@GLOBO.COM  | 32567763  |
 |        18 | CARMEM  | M    | CARMEM@IG.COM     | 787832213 |
 +-----------+---------+------+-------------------+-----------+
-6 rows in set (0.02 sec)
+6 rows in set (0.02 sec)'''
 
-Vamos corrigir:
-*/
+-- Vamos corrigir:
+
 UPDATE CLIENTE SET SEXO = 'F'
 WHERE IDCLIENTE IN (11,12,13,17,18);
 
