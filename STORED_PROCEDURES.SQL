@@ -52,7 +52,7 @@ CALL SOMA(-1,500)$
 +-------+
 1 row in set (0.00 sec)'''
 
-CALL SOMA((2*5),3)$
+CALL SOMA((2*5 ),3)$
 '''
 +-------+
 | CONTA |
